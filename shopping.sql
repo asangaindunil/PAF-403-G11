@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2019 at 09:56 PM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.6
+-- Generation Time: May 19, 2019 at 08:13 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -71,6 +73,29 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`ord_id`, `item_id`, `cus_id`, `tot_qty`, `tot_price`, `remark`, `delivery_status`, `created_at`) VALUES
 (2, 2, 3, 2, 30000, 'Safe delivery', 1, '2019-05-19');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rating`
+--
+
+CREATE TABLE `rating` (
+  `rating_id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `comment` varchar(30) NOT NULL,
+  `cus_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `rate` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rating`
+--
+
+INSERT INTO `rating` (`rating_id`, `item_id`, `comment`, `cus_id`, `date`, `rate`) VALUES
+(2, 3, 'very good', 4, '2019-05-17', 5),
+(3, 5, 'badd', 2, '2019-05-19', 1);
+
 --
 -- Indexes for dumped tables
 --
@@ -88,6 +113,12 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`ord_id`);
 
 --
+-- Indexes for table `rating`
+--
+ALTER TABLE `rating`
+  ADD PRIMARY KEY (`rating_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -96,11 +127,20 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `item`
   MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
   MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `rating`
+--
+ALTER TABLE `rating`
+  MODIFY `rating_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
