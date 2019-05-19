@@ -99,6 +99,20 @@ INSERT INTO `rating` (`rating_id`, `item_id`, `comment`, `cus_id`, `date`, `rate
 --
 -- Indexes for dumped tables
 --
+CREATE TABLE `Suppliers` (
+  `id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `designation` varchar(30) NOT NULL,
+  `expertise` varchar(30) NOT NULL,
+  `createdAt` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+insert into `Suppliers` (`id`,`name`,`designation`,`expertise`,`createdAt`) values
+(5,'amal','Supplier','Art and Drawing','2019-05-20');
+
+insert into `Suppliers` (`id`,`name`,`designation`,`expertise`,`createdAt`) values
+(10,'perera','Supplier and Publisher','Science and Mathematics','2019-05-20');
+
 
 --
 -- Indexes for table `item`
@@ -121,6 +135,8 @@ ALTER TABLE `rating`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+ALTER TABLE `Suppliers`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for table `item`
@@ -133,6 +149,10 @@ ALTER TABLE `item`
 --
 ALTER TABLE `orders`
   MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  
+ALTER TABLE `Suppliers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 
 --
 -- AUTO_INCREMENT for table `rating`
